@@ -5,25 +5,20 @@ import java.util.Scanner;
 import java.util.Stack;
 import java.util.Set;
 
-//TODO: change header
 /**
- * This class solves the "making change" problem
+ * This class solves the "galactic breakup" problem
  * 
  * @author Matthew Jacobs, Michael White
  * @version 1.0.0
- * file: MakeChange.java
+ * file: solver.java
  * Created October 2022
  * Copyright Matthew Jacobs, Michael White
  *
- * Description: This class exists to solve the "making change" problem.
- * It takes parameters in the form of a list of coin denominations
- * and then a list of values to make change for. It returns how many of 
- * each coin denomination is needed to reach the desired value. It can be 
- * used to do the bottom-up approach and the recursive approach with and
- * without memoization. Each of these approaches fundamentally involves 
- * finding which of the values one denomination less than the current value
- * has the lowest coin count and adding one coin of the selected denomination
- * to that group to be added to the returned group of coins
+ * Description: This class exists to solve the "galactic breakup" problem.
+ * It takes in the size of the galaxy followed by the number of seceding 
+ * monarchies and then reads the dominions seceding for each monarchy
+ * It uses disjoint sets to determine how many months the galaxy is divided as
+ * monarchies secede
  */
 public class Solver {
     
@@ -134,6 +129,16 @@ public class Solver {
         System.out.print(numDividedMonths);
     }
     
+    /**
+     * @description checks if the neighbor of a given dominion is part
+     * of a disjoint set and joins that set if so.
+     * @param n
+     * @param m
+     * @param k
+     * @param length
+     * @param width
+     * @param Base
+     */
     public static void neighborCheck(int n, int m, int k, int length, int width,
             DJSetNode Base) {
             
