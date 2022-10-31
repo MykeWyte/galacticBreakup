@@ -2,7 +2,7 @@ package galacticBreakup;
 
 /**
  *
- * @author swocc
+ * @author Matthew Jacobs, Michael White
  */
 public class DJSetNode {
     // member values
@@ -35,27 +35,32 @@ public class DJSetNode {
         return this.par;
     }
     
-    public DJSetNode union(DJSetNode other)
+    public DJSetNode union(DJSetNode otherRep)
     {
         // ensure the sets are being merged at the root to keep accurate ranks
-        DJSetNode thisRep = this.findSet();
-        DJSetNode otherRep = other.findSet();
-        DJSetNode newRep = null;
+        DJSetNode thisRep = this;
         
         if(thisRep.rank < otherRep.rank)
         {
             thisRep.par = otherRep;
-            newRep = otherRep;
+            
+            if (otherRep.rank == thisRep.rank)
+            {
+                otherRep.rank++;
+            }
+            
+            return otherRep;
         }
         else
         {
             otherRep.par = thisRep;
-            newRep = thisRep;
+            
             if (otherRep.rank == thisRep.rank)
             {
                 thisRep.rank++;
             }
+            
+            return thisRep;
         }
-        return otherRep;
     }
 }
