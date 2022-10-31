@@ -130,14 +130,17 @@ public class Solver {
     }
     
     /**
-     * @description checks if the neighbor of a given dominion is part
-     * of a disjoint set and joins that set if so.
-     * @param n
-     * @param m
-     * @param k
-     * @param length
-     * @param width
-     * @param Base
+     * @description checks if the neighbor of a given dominion (Base) exists,
+     * and if so then checks to see if the representatives of the neighbor and 
+     * Base dominions are different, if so it unions them together and updates 
+     * the forest
+     * 
+     * @param n length component of 3D coordinate of neighbor dominion
+     * @param m width component of 3D coordinate of neighbor dominion
+     * @param k height component of 3D coordinate of neighbor dominion
+     * @param length length of the galaxy
+     * @param width width of the galaxy
+     * @param Base the dominion being searched around
      */
     public static void neighborCheck(int n, int m, int k, int length, int width,
             DJSetNode Base) {
